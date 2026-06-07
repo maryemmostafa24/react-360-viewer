@@ -1,6 +1,6 @@
 {
     "name": "@mmmmzxe/react-360-viewer",
-    "version": "0.1.5",
+    "version": "0.1.13",
     "description": "A standalone, configurable 360° image viewer for React with drag rotation, zoom, hotspots, and auto-rotate support.",
     "license": "MIT",
     "type": "module",
@@ -13,12 +13,16 @@
             "import": "./dist/index.js",
             "default": "./dist/index.js"
         },
-        "./styles.css": "./dist/styles.css"
+        "./styles.css": "./dist/styles.css",
+        "./inject-styles": {
+            "import": "./dist/inject-styles.js",
+            "default": "./dist/inject-styles.js"
+        }
     },
     "sideEffects": [
-        "./src/generated/injectStyles.ts",
         "./dist/index.js",
-        "**/*.css"
+        "./dist/inject-styles.js",
+        "./dist/styles.css"
     ],
     "files": [
         "dist",
@@ -26,9 +30,8 @@
         "README.md"
     ],
     "scripts": {
-        "build": "npm run build:css && node scripts/embed-styles.mjs && tsup && npm run build:css:dist",
-        "build:css": "tailwindcss -i ./src/styles.css -o ./src/generated/viewer360.min.css --minify",
-        "build:css:dist": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+        "build": "tsup && npm run build:css && node scripts/bundle-inject-styles.mjs",
+        "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
         "dev": "tsup --watch",
         "tsc": "tsc --noEmit",
         "test": "vitest",

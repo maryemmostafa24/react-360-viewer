@@ -1,6 +1,5 @@
 node_modules/
 dist/
-src/generated/viewer360.min.css
 coverage/
 *.tgz
 

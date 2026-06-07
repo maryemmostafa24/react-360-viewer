@@ -121,6 +121,7 @@ export function Viewer360<TData = unknown>({
         frameLabel,
         isHotspotMode,
         labels: mergedLabels,
+        frameIndicatorClassName: mergedClassNames.frameIndicator,
     };
     const toolbarProps: Viewer360ToolbarRenderProps = {
         zoom,
@@ -144,7 +145,11 @@ export function Viewer360<TData = unknown>({
     // MARK: Main Component UI
     // ----------------------------------------------------------------------------------------------------
     return (
-        <Card className={cn(mergedClassNames.root, 'gap-0 py-0 shadow-none ring-0', className)} style={{ ...themeStyle, ...style }}>
+        <Card
+            data-viewer-360=""
+            className={cn(mergedClassNames.root, 'gap-0 py-0 shadow-none ring-0', className)}
+            style={{ ...themeStyle, ...style }}
+        >
             <div
                 ref={containerRef}
                 className={cn(mergedClassNames.viewport, viewerCursorClass)}

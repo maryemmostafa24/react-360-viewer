@@ -1,4 +1,5 @@
-@import 'tailwindcss';
+@import 'tailwindcss/theme' layer(theme);
+@import 'tailwindcss/utilities' layer(utilities);
 
 @source './**/*.{ts,tsx}';
 
@@ -27,14 +28,16 @@
     --radius-md: calc(var(--radius) - 2px);
     --radius-lg: var(--radius);
     --radius-xl: calc(var(--radius) + 4px);
+    --radius-4xl: 2rem;
 }
 
 /*
- * Default design tokens — used when the host app does not already define shadcn variables.
- * If your app uses shadcn/ui, your existing :root variables take precedence.
+ * Scoped to the viewer only — never set :root (that would override the host app's entire theme).
+ * Host app shadcn variables inherit into the viewer. Fallbacks apply only inside [data-viewer-360].
  */
-:root {
+[data-viewer-360] {
     --radius: 0.625rem;
+    --radius-4xl: 2rem;
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
     --card: oklch(1 0 0);
@@ -55,7 +58,7 @@
     --ring: oklch(0.708 0 0);
 }
 
-.dark {
+.dark [data-viewer-360] {
     --background: oklch(0.145 0 0);
     --foreground: oklch(0.985 0 0);
     --card: oklch(0.205 0 0);

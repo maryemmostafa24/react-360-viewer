@@ -46,6 +46,7 @@ export type Viewer360OverlayRenderProps = {
     frameLabel?: string;
     isHotspotMode: boolean;
     labels: Required<import('./Viewer360Props').Viewer360Labels>;
+    frameIndicatorClassName: string;
 };
 
 export type Viewer360ToolbarRenderProps = {

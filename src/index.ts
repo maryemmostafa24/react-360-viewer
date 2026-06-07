@@ -1,5 +1,3 @@
-import './generated/injectStyles';
-
 export { Viewer360 } from './feature/Viewer360';
 export { Viewer360AddModeBanner } from './feature/Viewer360AddModeBanner';
 export { Viewer360FrameIndicator } from './feature/Viewer360FrameIndicator';

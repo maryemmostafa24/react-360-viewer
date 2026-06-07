@@ -5,7 +5,6 @@ import { Trash2 } from 'lucide-react';
 import { defaultViewer360MarkerPinLabels } from '../constants/viewer360MarkerLabels';
 import { viewer360MarkerPinClassNames } from '../constants/viewer360ClassNames';
 import type { Viewer360MarkerPinProps } from '../types';
-import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import {
     Item,
@@ -38,34 +37,22 @@ export function Viewer360MarkerPin<TData = unknown>({
     // MARK: Main Component UI
     // ----------------------------------------------------------------------------------------------------
     return (
-        <Item
-            size="xs"
-            variant="default"
-            className={cn(
-                viewer360MarkerPinClassNames.root,
-                classNames?.root,
-                'group/marker w-auto border-transparent p-0'
-            )}
+        <div
+            className={cn(viewer360MarkerPinClassNames.root, classNames?.root, 'group/marker')}
             style={{ left: `${leftPercent}%`, top: `${topPercent}%` }}
         >
-            <Badge
-                variant="destructive"
-                className={cn(viewer360MarkerPinClassNames.ping, classNames?.ping, 'absolute size-6 border-0 bg-destructive opacity-60')}
-                aria-hidden="true"
-            />
+            <div className="relative size-4 shrink-0">
+                <span className={cn(viewer360MarkerPinClassNames.ping, classNames?.ping)} aria-hidden="true" />
 
-            <Button
-                type="button"
-                variant="destructive"
-                size="icon-xs"
-                className={cn(
-                    viewer360MarkerPinClassNames.dot,
-                    classNames?.dot,
-                    'size-4 min-h-4 min-w-4 rounded-full border-2 border-background bg-destructive p-0 shadow-md hover:scale-125 hover:bg-destructive'
-                )}
-                aria-label={marker.title}
-                onClick={onClick}
-            />
+                <Button
+                    type="button"
+                    variant="destructive"
+                    size="icon-xs"
+                    className={cn(viewer360MarkerPinClassNames.dot, classNames?.dot, 'hover:bg-destructive')}
+                    aria-label={marker.title}
+                    onClick={onClick}
+                />
+            </div>
 
             {showTooltip && (
                 <div
@@ -84,7 +71,9 @@ export function Viewer360MarkerPin<TData = unknown>({
                             <ItemTitle className={cn(viewer360MarkerPinClassNames.tooltipTitle, classNames?.tooltipTitle)}>
                                 {marker.title}
                             </ItemTitle>
-                            {renderTag?.({ marker, hotspot })}
+                            {renderTag && (
+                                <div className="mt-1 flex w-fit items-center">{renderTag({ marker, hotspot })}</div>
+                            )}
                             {marker.description && (
                                 <ItemDescription className={cn(viewer360MarkerPinClassNames.tooltipDescription, classNames?.tooltipDescription)}>
                                     {marker.description}
@@ -111,6 +100,6 @@ export function Viewer360MarkerPin<TData = unknown>({
                     </Item>
                 </div>
             )}
-        </Item>
+        </div>
     );
 }
