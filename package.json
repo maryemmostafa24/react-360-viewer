@@ -24,6 +24,7 @@
         "dist/index.d.ts",
         "dist/styles.css",
         "README.md",
+        "CHANGELOG.md",
         "LICENSE"
     ],
     "scripts": {

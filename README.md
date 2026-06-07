@@ -149,6 +149,15 @@ npm run dev
 npm run test-run
 ```
 
+## Support
+
+- [Changelog](./CHANGELOG.md)
+- [Report a bug](https://github.com/maryemmostafa24/react-360-viewer/issues/new?template=bug_report.yml)
+- [Request a feature](https://github.com/maryemmostafa24/react-360-viewer/issues/new?template=feature_request.yml)
+- [Security policy](./SECURITY.md)
+
+Releases are published from [GitHub Releases](https://github.com/maryemmostafa24/react-360-viewer/releases) with CI checks and npm provenance.
+
 ## License
 
 MIT
