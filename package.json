@@ -1,6 +1,6 @@
 {
     "name": "@mmmmzxe/react-360-viewer",
-    "version": "0.1.15",
+    "version": "0.1.16",
     "description": "A standalone, configurable 360° image viewer for React with drag rotation, zoom, hotspots, and auto-rotate support.",
     "license": "MIT",
     "type": "module",
@@ -24,7 +24,7 @@
         "LICENSE"
     ],
     "scripts": {
-        "build": "tsup && npm run build:css",
+        "build": "tsup && npm run build:css && node scripts/scope-styles.mjs",
         "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
         "dev": "tsup --watch",
         "tsc": "tsc --noEmit",

@@ -2,8 +2,8 @@ import type { Viewer360ClassNames } from '../types/Viewer360Props';
 import type { Viewer360MarkerPinClassNames } from '../types/Viewer360Marker';
 
 export const viewer360ClassNames: Required<Viewer360ClassNames> = {
-    root: 'overflow-hidden rounded-lg border bg-card text-card-foreground',
-    viewport: 'relative aspect-[16/10] w-full touch-none select-none bg-muted',
+    root: 'w-full max-w-full min-w-0 overflow-hidden rounded-lg border bg-card text-card-foreground',
+    viewport: 'relative aspect-[16/10] w-full max-w-full min-w-0 touch-none select-none bg-muted',
     canvas: 'absolute inset-0 size-full',
     overlay: 'pointer-events-none absolute inset-0 overflow-hidden',
     loading: 'absolute inset-0 flex items-center justify-center bg-muted/80',
