@@ -2,7 +2,7 @@ import * as React from 'react';
 import type { JSX } from 'react';
 
 import { cva, type VariantProps } from 'class-variance-authority';
-import { Slot } from 'radix-ui';
+import { Slot } from '@radix-ui/react-slot';
 
 import { cn } from '@/components/utils';
 
@@ -37,7 +37,7 @@ function Badge({
     ...props
 }: React.ComponentProps<'span'> & VariantProps<typeof badgeVariants> & { asChild?: boolean }): JSX.Element {
     // eslint-disable-next-line @typescript-eslint/naming-convention
-    const Comp = asChild ? Slot.Root : 'span';
+    const Comp = asChild ? Slot : 'span';
 
     return <Comp data-slot="badge" data-variant={variant} className={cn(badgeVariants({ variant }), className)} {...props} />;
 }

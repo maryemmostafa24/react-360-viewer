@@ -26,9 +26,26 @@ npm install @mmmmzxe/react-360-viewer
 npm install react react-dom lucide-react
 ```
 
+### Styles
+
+Import the stylesheet once in your app (e.g. in your root layout or entry file):
+
+```tsx
+import '@mmmmzxe/react-360-viewer/styles.css';
+```
+
+Styles are scoped to `[data-viewer-360]` and will not override your app's global theme. Requires a **client component** in Next.js App Router (`'use client'`).
+
+If styles don't appear after updating, delete `.next` and restart the dev server.
+
+---
+
 ## Quick Start
 
 ```tsx
+'use client';
+
+import '@mmmmzxe/react-360-viewer/styles.css';
 import { useState } from "react";
 import {
   Viewer360,
