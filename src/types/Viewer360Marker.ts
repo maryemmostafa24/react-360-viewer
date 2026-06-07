@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react';
+import type { MouseEvent, ReactNode } from 'react';
 
 import type { Viewer360Hotspot } from './Viewer360Hotspot';
 
@@ -36,6 +36,7 @@ export type Viewer360MarkerPinProps<TData = unknown> = {
     topPercent: number;
     onDelete?: (id: string) => void;
     isDeletePending?: boolean;
+    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
     renderTag?: (props: Viewer360MarkerPinRenderProps<TData>) => ReactNode;
     classNames?: Viewer360MarkerPinClassNames;
     labels?: Viewer360MarkerPinLabels;

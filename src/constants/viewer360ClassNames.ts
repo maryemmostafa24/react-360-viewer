@@ -26,7 +26,8 @@ export const viewer360MarkerPinClassNames: Required<Viewer360MarkerPinClassNames
     root: 'pointer-events-auto absolute z-30 -translate-x-1/2 -translate-y-1/2',
     ping: 'absolute inline-flex size-6 -translate-x-1/4 -translate-y-1/4 animate-ping rounded-full bg-destructive opacity-60',
     dot: 'relative flex size-4 items-center justify-center rounded-full border-2 border-background bg-destructive shadow-md transition-transform duration-200 hover:scale-125 focus:outline-none',
-    tooltip: 'absolute bottom-6 left-1/2 z-40 w-64 -translate-x-1/2 rounded-lg border bg-popover p-3 text-popover-foreground shadow-md',
+    tooltip:
+        'absolute bottom-6 left-1/2 z-40 w-64 -translate-x-1/2 rounded-lg border bg-popover p-3 text-popover-foreground shadow-md',
     tooltipHeader: 'flex items-start justify-between gap-2',
     tooltipBody: 'flex min-w-0 flex-col gap-1',
     tooltipTitle: 'text-sm font-medium',

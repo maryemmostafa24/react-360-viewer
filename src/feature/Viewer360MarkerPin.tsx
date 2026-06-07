@@ -1,5 +1,4 @@
-import type { JSX } from 'react';
-import { useState } from 'react';
+import type { JSX, MouseEvent } from 'react';
 
 import { Trash2 } from 'lucide-react';
 
@@ -15,7 +14,6 @@ import {
     ItemDescription,
     ItemTitle,
 } from '@/components/ui/Item';
-import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/Popover';
 import { cn } from '@/components/utils';
 
 export function Viewer360MarkerPin<TData = unknown>({
@@ -25,6 +23,7 @@ export function Viewer360MarkerPin<TData = unknown>({
     topPercent,
     onDelete,
     isDeletePending = false,
+    onClick,
     renderTag,
     classNames,
     labels,
@@ -32,47 +31,49 @@ export function Viewer360MarkerPin<TData = unknown>({
     // ----------------------------------------------------------------------------------------------------
     // MARK: States & Constants
     // ----------------------------------------------------------------------------------------------------
-    const [isOpen, setIsOpen] = useState(false);
     const deleteLabel = labels?.delete ?? defaultViewer360MarkerPinLabels.delete;
+    const showTooltip = Boolean(marker.title || marker.description || onDelete || renderTag);
 
     // ----------------------------------------------------------------------------------------------------
     // MARK: Main Component UI
     // ----------------------------------------------------------------------------------------------------
     return (
-        <Popover open={isOpen} onOpenChange={setIsOpen}>
-            <Item
-                size="xs"
-                variant="default"
-                className={cn(viewer360MarkerPinClassNames.root, classNames?.root, 'w-auto border-transparent p-0')}
-                style={{ left: `${leftPercent}%`, top: `${topPercent}%` }}
-                onMouseEnter={() => setIsOpen(true)}
-                onMouseLeave={() => setIsOpen(false)}
-            >
-                <Badge
-                    variant="destructive"
-                    className={cn(viewer360MarkerPinClassNames.ping, classNames?.ping, 'absolute size-6 border-0 bg-destructive opacity-60')}
-                    aria-hidden="true"
-                />
+        <Item
+            size="xs"
+            variant="default"
+            className={cn(
+                viewer360MarkerPinClassNames.root,
+                classNames?.root,
+                'group/marker w-auto border-transparent p-0'
+            )}
+            style={{ left: `${leftPercent}%`, top: `${topPercent}%` }}
+        >
+            <Badge
+                variant="destructive"
+                className={cn(viewer360MarkerPinClassNames.ping, classNames?.ping, 'absolute size-6 border-0 bg-destructive opacity-60')}
+                aria-hidden="true"
+            />
 
-                <PopoverTrigger asChild>
-                    <Button
-                        type="button"
-                        variant="destructive"
-                        size="icon-xs"
-                        className={cn(
-                            viewer360MarkerPinClassNames.dot,
-                            classNames?.dot,
-                            'size-4 min-h-4 min-w-4 rounded-full border-2 border-background bg-destructive p-0 shadow-md hover:scale-125 hover:bg-destructive'
-                        )}
-                        aria-label={marker.title}
-                    />
-                </PopoverTrigger>
+            <Button
+                type="button"
+                variant="destructive"
+                size="icon-xs"
+                className={cn(
+                    viewer360MarkerPinClassNames.dot,
+                    classNames?.dot,
+                    'size-4 min-h-4 min-w-4 rounded-full border-2 border-background bg-destructive p-0 shadow-md hover:scale-125 hover:bg-destructive'
+                )}
+                aria-label={marker.title}
+                onClick={onClick}
+            />
 
-                <PopoverContent
-                    className={cn(viewer360MarkerPinClassNames.tooltip, classNames?.tooltip, 'w-64 p-0')}
-                    side="top"
-                    align="center"
-                    onOpenAutoFocus={(event) => event.preventDefault()}
+            {showTooltip && (
+                <div
+                    className={cn(
+                        viewer360MarkerPinClassNames.tooltip,
+                        classNames?.tooltip,
+                        'pointer-events-none opacity-0 transition-opacity duration-150 group-hover/marker:pointer-events-auto group-hover/marker:opacity-100 group-focus-within/marker:pointer-events-auto group-focus-within/marker:opacity-100'
+                    )}
                 >
                     <Item
                         size="sm"
@@ -98,7 +99,7 @@ export function Viewer360MarkerPin<TData = unknown>({
                                     className={classNames?.deleteButton}
                                     disabled={isDeletePending}
                                     aria-label={deleteLabel}
-                                    onClick={(event) => {
+                                    onClick={(event: MouseEvent<HTMLButtonElement>) => {
                                         event.stopPropagation();
                                         onDelete(marker.id);
                                     }}
@@ -108,8 +109,8 @@ export function Viewer360MarkerPin<TData = unknown>({
                             </ItemActions>
                         )}
                     </Item>
-                </PopoverContent>
-            </Item>
-        </Popover>
+                </div>
+            )}
+        </Item>
     );
 }
