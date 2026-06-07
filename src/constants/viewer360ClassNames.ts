@@ -9,7 +9,7 @@ export const viewer360ClassNames: Required<Viewer360ClassNames> = {
     loading: 'absolute inset-0 flex items-center justify-center bg-muted/80',
     loadingText: 'text-sm text-muted-foreground',
     frameIndicator:
-        'pointer-events-none absolute bottom-4 start-1/2 z-20 -translate-x-1/2 rounded-full border bg-background px-4 py-1.5 text-xs font-medium shadow-sm',
+        'pointer-events-none absolute bottom-4 start-4 z-20 rounded-full border bg-background px-4 py-1.5 text-xs font-medium shadow-sm',
     hotspotModeBanner:
         'pointer-events-none absolute top-4 start-1/2 z-20 -translate-x-1/2 rounded-full border border-amber-200 bg-amber-50 px-4 py-1.5 text-xs font-medium text-amber-800 dark:border-amber-500/30 dark:bg-amber-500/10 dark:text-amber-400',
     toolbar: 'flex flex-wrap items-center justify-between gap-2 border-t px-4 py-3',
