@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Bumped `@types/react` to 19.2.17 and `jsdom` to 29.1.1 (dev dependencies).
+
 ### Added
 
 - `CHANGELOG.md`, `SECURITY.md`, Dependabot config, and GitHub issue templates.
