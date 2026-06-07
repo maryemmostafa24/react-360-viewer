@@ -1,6 +1,6 @@
 {
     "name": "@mmmmzxe/react-360-viewer",
-    "version": "0.1.16",
+    "version": "0.1.17",
     "description": "A standalone, configurable 360° image viewer for React with drag rotation, zoom, hotspots, and auto-rotate support.",
     "license": "MIT",
     "type": "module",
@@ -19,7 +19,9 @@
         "./dist/styles.css"
     ],
     "files": [
-        "dist",
+        "dist/index.js",
+        "dist/index.d.ts",
+        "dist/styles.css",
         "README.md",
         "LICENSE"
     ],

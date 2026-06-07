@@ -151,10 +151,36 @@ npm run test-run
 
 ## Publishing
 
+### One-time setup
+
+1. Create an [npm access token](https://www.npmjs.com/settings/~/tokens) (type: **Automation** for CI).
+2. Add it to GitHub: **Settings → Secrets → Actions → `NPM_TOKEN`**.
+
+### Publish from GitHub Actions (recommended)
+
+1. Bump the version locally and commit:
+
+```bash
+npm version patch   # or minor / major
+git push && git push --tags
+```
+
+2. Create a [GitHub Release](https://github.com/maryemmostafa24/react-360-viewer/releases/new) for the new tag.
+
+   The **Publish** workflow runs automatically and publishes with `--provenance` (build attestation for npm/Socket trust scores).
+
+You can also trigger publish manually: **Actions → Publish → Run workflow**.
+
+### Publish locally (optional)
+
 ```bash
 npm version patch
-npm publish
+npm publish --access public
 ```
+
+Use `--provenance` only when your local npm supports OIDC; GitHub Actions is preferred.
+
+Avoid rapid patch releases — each version is permanent on npm and can lower supply-chain scores until the package matures.
 
 ## License
 
