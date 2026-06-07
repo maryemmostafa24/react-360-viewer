@@ -1,4 +1,4 @@
-# @mmmmzxe/react-360-viewer
+# @mmmmzxe/react-360-view
 
 A standalone, configurable 360° image viewer for React with drag rotation, zoom, hotspots, and auto-rotate support.
 
@@ -17,7 +17,7 @@ A standalone, configurable 360° image viewer for React with drag rotation, zoom
 ## Installation
 
 ```bash
-npm install @mmmmzxe/react-360-viewer
+npm install @mmmmzxe/react-360-view
 ```
 
 ### Peer Dependencies
@@ -31,7 +31,7 @@ npm install react react-dom lucide-react
 Import the stylesheet once in your app (e.g. in your root layout or entry file):
 
 ```tsx
-import '@mmmmzxe/react-360-viewer/styles.css';
+import '@mmmmzxe/react-360-view/styles.css';
 ```
 
 Styles are scoped to `[data-viewer-360]` via CSS `@scope` and will not override your app's global theme or Tailwind classes. Requires a **client component** in Next.js App Router (`'use client'`).
@@ -53,12 +53,12 @@ If styles don't appear after updating, delete `.next` and restart the dev server
 ```tsx
 'use client';
 
-import '@mmmmzxe/react-360-viewer/styles.css';
+import '@mmmmzxe/react-360-view/styles.css';
 import { useState } from "react";
 import {
   Viewer360,
   type Viewer360Frame,
-} from "@mmmmzxe/react-360-viewer";
+} from "@mmmmzxe/react-360-view";
 
 const frames: Viewer360Frame[] = [
   { id: "1", src: "/images/frame-01.jpg", label: "Front" },
