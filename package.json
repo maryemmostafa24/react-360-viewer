@@ -1,6 +1,6 @@
 {
     "name": "@mmmmzxe/react-360-view",
-    "version": "1.0.2",
+    "version": "1.0.4",
     "description": "A standalone, configurable 360° image viewer for React with drag rotation, zoom, hotspots, and auto-rotate support.",
     "author": "Maryem Mostafa <maryem.mostafa00@gmail.com>",
     "license": "MIT",
