@@ -59,7 +59,7 @@
         "tailwind-merge": "^3.4.0",
         "tailwindcss": "^4.1.11",
         "tsup": "^8.5.0",
-        "typescript": "^5",
+        "typescript": "^6",
         "vitest": "^3.2.4"
     },
     "keywords": [
