@@ -7,14 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.5] - 2026-06-09
+
 ### Changed
 
-- Bumped `@types/react` to 19.2.17 and `jsdom` to 29.1.1 (dev dependencies).
-
-### Added
-
-- `CHANGELOG.md`, `SECURITY.md`, Dependabot config, and GitHub issue templates.
-- README support section with links for bugs, features, and security reports.
+- Bundled shadcn tokens, overflow containment, and Tailwind utilities into one `styles.css`.
+- Styles load automatically when importing the viewer (no manual CSS import required).
+- `labels.deleteMarker` is passed through to hotspot pin delete buttons.
+- Publish workflow syncs `package.json` version from the GitHub release tag.
 
 ## [1.0.2] - 2026-06-07
 
@@ -37,7 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Scoped Tailwind styles via `@mmmmzxe/react-360-view/styles.css`.
 - TypeScript types and headless `useViewer360` hook.
 
-[Unreleased]: https://github.com/maryemmostafa24/react-360-viewer/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/maryemmostafa24/react-360-viewer/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/maryemmostafa24/react-360-viewer/compare/v1.0.4...v1.0.5
 [1.0.2]: https://github.com/maryemmostafa24/react-360-viewer/compare/v1.0.1...v1.0.2
 [1.0.1]: https://github.com/maryemmostafa24/react-360-viewer/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/maryemmostafa24/react-360-viewer/releases/tag/v1.0.0

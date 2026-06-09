@@ -30,16 +30,12 @@ jobs:
       - run: npm run build
       - run: npm pack --dry-run
 
-      - name: Verify package version matches release tag
+      - name: Set package version from release tag
         if: github.event_name == 'release'
         run: |
           TAG="${{ github.event.release.tag_name }}"
           VERSION="${TAG#v}"
-          PKG_VERSION=$(node -p "require('./package.json').version")
-          if [ "$VERSION" != "$PKG_VERSION" ]; then
-            echo "package.json version ($PKG_VERSION) does not match release tag ($VERSION)"
-            exit 1
-          fi
+          npm version "$VERSION" --no-git-tag-version --allow-same-version
 
       - name: Publish to npm with provenance
         run: npm publish --provenance --access public --ignore-scripts
