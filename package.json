@@ -17,7 +17,8 @@
         "./styles.css": "./dist/styles.css"
     },
     "sideEffects": [
-        "./dist/styles.css"
+        "./dist/styles.css",
+        "./dist/index.js"
     ],
     "files": [
         "dist/index.js",
@@ -28,7 +29,7 @@
         "LICENSE"
     ],
     "scripts": {
-        "build": "tsup && npm run build:css && node scripts/scope-styles.mjs",
+        "build": "tsup && npm run build:css && node scripts/scope-styles.mjs && node scripts/inject-styles-import.mjs",
         "build:css": "tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
         "dev": "tsup --watch",
         "tsc": "tsc --noEmit",

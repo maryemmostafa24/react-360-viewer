@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { applyWheelZoom, isResetDisabled, resolveViewer360Config, stepZoomIn, stepZoomOut } from './adjustViewerZoom';
+import { applyWheelZoom, isResetDisabled, resolveViewer360Config, stepZoomIn, stepZoomOut } from '../helpers/adjustViewerZoom';
 
 describe('adjustViewerZoom', () => {
     const config = resolveViewer360Config();

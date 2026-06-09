@@ -152,6 +152,7 @@ export function Viewer360<TData = unknown>({
         >
             <div
                 ref={containerRef}
+                data-viewer-viewport=""
                 className={cn(mergedClassNames.viewport, viewerCursorClass)}
                 style={{ aspectRatio }}
                 onPointerDown={handlePointerDown}
@@ -163,7 +164,7 @@ export function Viewer360<TData = unknown>({
             >
                 <canvas ref={canvasRef} className={mergedClassNames.canvas} />
 
-                <div className={mergedClassNames.overlay}>
+                <div data-viewer-overlay="" className={mergedClassNames.overlay}>
                     {currentFrameHotspots.map((hotspot) => {
                         const position = getHotspotScreenPosition(hotspot);
 
@@ -174,6 +175,7 @@ export function Viewer360<TData = unknown>({
                                 leftPercent={position.leftPercent}
                                 topPercent={position.topPercent}
                                 hotspotPin={hotspotPin}
+                                deleteMarkerLabel={mergedLabels.deleteMarker}
                                 renderHotspot={renderHotspot}
                                 onHotspotClick={onHotspotClick}
                             />

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { clampFrameIndex, computeDragFrameIndex } from './computeDragFrameIndex';
+import { clampFrameIndex, computeDragFrameIndex } from '../helpers/computeDragFrameIndex';
 
 describe('computeDragFrameIndex', () => {
     it('wraps frame indices', () => {

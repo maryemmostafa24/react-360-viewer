@@ -28,18 +28,21 @@ npm install react react-dom lucide-react
 
 ### Styles
 
-Import the stylesheet once in your app (e.g. in your root layout or entry file):
+**No import needed.** Styles load automatically when you import the viewer:
+
+```tsx
+import { Viewer360 } from '@mmmmzxe/react-360-view';
+```
+
 
 ```tsx
 import '@mmmmzxe/react-360-view/styles.css';
 ```
 
-Styles are scoped to `[data-viewer-360]` via CSS `@scope` and will not override your app's global theme or Tailwind classes. Requires a **client component** in Next.js App Router (`'use client'`).
-
 Wrap the viewer in a sized container if needed:
 
 ```tsx
-<div className="w-full max-w-3xl">
+<div className="w-full max-w-3xl min-w-0">
   <Viewer360 frames={frames} />
 </div>
 ```
@@ -53,7 +56,6 @@ If styles don't appear after updating, delete `.next` and restart the dev server
 ```tsx
 'use client';
 
-import '@mmmmzxe/react-360-view/styles.css';
 import { useState } from "react";
 import {
   Viewer360,

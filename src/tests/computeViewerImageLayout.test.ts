@@ -4,7 +4,7 @@ import {
     computeHotspotPositionFromClick,
     computeHotspotScreenPosition,
     computeViewerImageLayout,
-} from './computeViewerImageLayout';
+} from '../helpers/computeViewerImageLayout';
 
 describe('computeViewerImageLayout', () => {
     const layout = computeViewerImageLayout({

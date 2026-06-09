@@ -1,8 +1,9 @@
 import type { CSSProperties } from 'react';
 
 import { defaultViewer360Labels } from '../constants/viewer360Labels';
+import { defaultViewer360MarkerPinLabels } from '../constants/viewer360MarkerLabels';
 import { viewer360ClassNames } from '../constants/viewer360ClassNames';
-import type { Viewer360ClassNames, Viewer360Labels, Viewer360Theme } from '../types';
+import type { Viewer360ClassNames, Viewer360Labels, Viewer360MarkerPinLabels, Viewer360Theme } from '../types';
 import { cn } from '@/components/utils';
 
 export function mergeViewer360Labels(labels?: Viewer360Labels): Required<Viewer360Labels> {
@@ -17,6 +18,15 @@ export function mergeViewer360Labels(labels?: Viewer360Labels): Required<Viewer3
         zoomOut: labels?.zoomOut ?? defaultViewer360Labels.zoomOut,
         resetView: labels?.resetView ?? defaultViewer360Labels.resetView,
         deleteMarker: labels?.deleteMarker ?? defaultViewer360Labels.deleteMarker,
+    };
+}
+
+export function mergeViewer360MarkerPinLabels(
+    pinLabels?: Viewer360MarkerPinLabels,
+    deleteMarker?: string,
+): Required<Viewer360MarkerPinLabels> {
+    return {
+        delete: pinLabels?.delete ?? deleteMarker ?? defaultViewer360MarkerPinLabels.delete,
     };
 }
 

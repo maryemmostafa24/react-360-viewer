@@ -1,0 +1,42 @@
+/*
+ * Viewer layout containment — prevents overflow into the host page.
+ * Only affects [data-viewer-360].
+ */
+[data-viewer-360] {
+    position: relative;
+    isolation: isolate;
+    contain: layout style;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+[data-viewer-360] *,
+[data-viewer-360] *::before,
+[data-viewer-360] *::after {
+    box-sizing: border-box;
+}
+
+[data-viewer-360] canvas,
+[data-viewer-360] img,
+[data-viewer-360] video {
+    display: block;
+    max-width: 100%;
+}
+
+[data-viewer-360] [data-viewer-viewport] {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+[data-viewer-360] [data-viewer-overlay] {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}

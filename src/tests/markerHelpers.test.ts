@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { hotspotToViewer360Marker, toViewer360Hotspots } from './markerHelpers';
+import { hotspotToViewer360Marker, toViewer360Hotspots } from '../helpers/markerHelpers';
 
 describe('markerHelpers', () => {
     it('maps hotspot data to marker content', () => {
